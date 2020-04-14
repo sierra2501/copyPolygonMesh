@@ -17,7 +17,7 @@
 
 
         py_src = py_src.replace("TARGET_NUM", document.getElementById('input_num').value)
-        py_src = py_src.replace("TARGET_DIRECTION", '"' + document.getElementById('input_direction').value + '"')
+        py_src = py_src.replace("TARGET_DIRECTION", document.getElementById('input_direction').value)
         py_src = py_src.replace("TARGET_DISTANCE", document.getElementById('input_distance').value)
 
         // スクリプトを実行.
@@ -36,7 +36,7 @@
             <p>繰り返し回数</p>
         </div>
         <div class = "cpm-right">
-            <input type="text" id="input_num" size="6">
+            <input type="number" id="input_num" class="cpm-form">
         </div>
     </div>
     <div class = "cpm-container">
@@ -44,7 +44,11 @@
             <p>方向</p>
         </div>
         <div class = "cpm-right">
-            <input type="text" id="input_direction" size="6">
+            <select id="input_direction" class="cpm-form">
+                <option value="1" selected>X軸</option>
+                <option value="2">Y軸</option>
+                <option value="3">Z軸</option>
+            </select>
         </div>
     </div>
     <div class = "cpm-container">
@@ -52,7 +56,7 @@
             <p>距離</p>
         </div>
         <div class = "cpm-right">
-            <input type="text" id="input_distance" size="6">
+            <input type="number" id="input_distance"  class="cpm-form">
         </div>
     </div>
     <input type="button" value="実行する" onclick="do_script();">

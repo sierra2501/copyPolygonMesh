@@ -19,14 +19,14 @@ def checkDirection(dir, dis):
 def main():
 
     # 繰り返しの回数
-    num = 10
+    num = TARGET_NUM
 
     # 並べる方向
     # RIGHT or LEFT or TOP or BOTTOM or FRONT or BACK
-    direction = "RIGHT"
+    direction = TARGET_DIRECTION
 
     # 移動距離
-    distance = 100
+    distance = TARGET_DISTANCE
 
     location = checkDirection(direction, distance)
 

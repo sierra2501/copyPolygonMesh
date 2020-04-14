@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/gannet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/readExternalFile.js"></script>
+
+    <script type="text/javascript">
+
+    function do_script () {
+    
+        // 外部ファイルのPythonコードを読み込みして連結.
+        py_src = readFileToString('py/copyPolygonMesh.py');
+
+
+        py_src = py_src.replace("TARGET_NUM", document.getElementById('input_num').value)
+        py_src = py_src.replace("TARGET_DIRECTION", '"' + document.getElementById('input_direction').value + '"')
+        py_src = py_src.replace("TARGET_DISTANCE", document.getElementById('input_distance').value)
+
+        // スクリプトを実行.
+        window.external.setScript(py_src);
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <h3>ポリゴンメッシュを並べる</h3>
+    <br />
+    <div class = "cpm-container">
+        <div class = "cpm-left">
+            <p>繰り返し回数</p>
+        </div>
+        <div class = "cpm-right">
+            <input type="text" id="input_num" size="6">
+        </div>
+    </div>
+    <div class = "cpm-container">
+        <div class = "cpm-left">
+            <p>方向</p>
+        </div>
+        <div class = "cpm-right">
+            <input type="text" id="input_direction" size="6">
+        </div>
+    </div>
+    <div class = "cpm-container">
+        <div class = "cpm-left">
+            <p>距離</p>
+        </div>
+        <div class = "cpm-right">
+            <input type="text" id="input_distance" size="6">
+        </div>
+    </div>
+    <input type="button" value="実行する" onclick="do_script();">
+
+</body>
+</html>

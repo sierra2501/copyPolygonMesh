@@ -1,0 +1,13 @@
+.cpm-container{
+  display: flex;
+  padding-bottom: 10px;
+  flex-direction: row;
+}
+.cpm-left{
+  width: 120px;
+}
+.cpm-right{
+  flex: 1;
+  height: auto;
+  padding-left: 5px;
+}

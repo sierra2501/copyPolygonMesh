@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/gannet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/readExternalFile.js"></script>
+
+    <script type="text/javascript">
+
+    function do_script () {
+    
+        // 外部ファイルのPythonコードを読み込みして連結.
+        py_src = readFileToString('py/copyPolygonMesh.py');
+
+
+        py_src = py_src.replace("TARGET_NUM", document.getElementById('input_num').value)
+        py_src = py_src.replace("TARGET_DIRECTION", document.getElementById('input_direction').value)
+        py_src = py_src.replace("TARGET_DISTANCE", document.getElementById('input_distance').value)
+
+        // スクリプトを実行.
+        window.external.setScript(py_src);
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="sh-wd-wrapper">
+
+        <div id="sh-wd-header">
+            <h3>ポリゴンメッシュを並べる</h3>
+        </div>
+
+        <div id="sh-wd-main">
+            <form id="sh-wd-form">
+                <div>
+                    <label for="input_num">繰り返し回数</label>
+                    <input type="number" id="input_num" form="sh-wd-form"></input>
+                </div>
+                <div>
+                    <label for="input_direction">方向</label>
+                    <select id="input_direction" form="sh-wd-form">
+                        <option value="1" selected>X軸</option>
+                        <option value="2">Y軸</option>
+                        <option value="3">Z軸</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="input_distance">距離</label>
+                    <input type="number" id="input_distance" form="sh-wd-form"></input>
+                </div>
+                <div>
+                    <input type="button" value="実行する" onclick="do_script();" form="sh-wd-form"></input>
+                </div>
+            </form>
+        </div>
+
+        <div id="sh-wd-footer">
+            <p>@sierra2501</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

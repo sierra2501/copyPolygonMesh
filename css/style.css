@@ -1,16 +1,35 @@
-.cpm-container{
+#sh-wd-wrapper{
   display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 220px;
+  margin: 10px auto;
+}
+#sh-wd-header{
+  display: table;
+  width: 100%;
+  height: 40px;
   padding-bottom: 10px;
-  flex-direction: row;
 }
-.cpm-left{
-  width: 120px;
-}
-.cpm-right{
+#sh-wd-main{
   flex: 1;
-  height: auto;
-  padding-left: 5px;
+  width: 100%;
+  padding-bottom: 10px;
 }
-.cpm-form{
+#sh-wd-footer{
+  display: table;
+  width: 100%;
+  height: 20px;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+#sh-wd-form label{
+  display:block;
+  float:left;
+  width:120px;
+}
+#sh-wd-form input,
+#sh-wd-form select{
   width: 100px;
 }
